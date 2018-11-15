@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pacman;
 
 import java.awt.Color;
@@ -18,9 +13,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/**
- * Written by Ryan D'souza Main Class of Pacman game
- */
 public class Pacman extends JPanel {
 
     public static final byte WALL = 1 << 0;
@@ -84,19 +76,19 @@ public class Pacman extends JPanel {
         setFocusable(true);
         requestFocusInWindow();
 
-        pacmanScoreLabel = new JLabel("Score: " + pacmanScore, JLabel.RIGHT);
+        pacmanScoreLabel = new JLabel("Score:" + pacmanScore, JLabel.RIGHT);
         pacmanScoreLabel.setForeground(Color.white);
         add(pacmanScoreLabel);
 
-        pacmanLivesLabel = new JLabel(SPACE + "Lives: " + pacmanLives, JLabel.LEFT);
+        pacmanLivesLabel = new JLabel(SPACE + "Lives:" + pacmanLives, JLabel.LEFT);
         pacmanLivesLabel.setForeground(Color.WHITE);
         add(pacmanLivesLabel);
 
-        ghostModeLabel = new JLabel(SPACE + "Normal", JLabel.LEFT);
+        ghostModeLabel = new JLabel(SPACE + "Normal:", JLabel.LEFT);
         ghostModeLabel.setForeground(Color.WHITE);
         add(ghostModeLabel);
 
-        nextGhostReleaseLabel = new JLabel(SPACE + "Ghost Release", JLabel.LEFT);
+        nextGhostReleaseLabel = new JLabel(SPACE + "Ghost Release:", JLabel.LEFT);
         nextGhostReleaseLabel.setForeground(Color.WHITE);
         add(nextGhostReleaseLabel);
 
@@ -120,7 +112,6 @@ public class Pacman extends JPanel {
      */
     public void initializeVariables() {
         Point ghostStart = null;
-
         for (byte i = 0; i < board.length; i++) {
             for (byte y = 0; y < board[i].length; y++) {
                 // Pacman starting location
@@ -176,16 +167,12 @@ public class Pacman extends JPanel {
             switch (theDirection) {
                 case UP:
                     return board[movingItem.getY() - 1][movingItem.getX()];
-
                 case DOWN:
                     return board[movingItem.getY() + 1][movingItem.getX()];
-
                 case LEFT:
                     return board[movingItem.getY()][movingItem.getX() - 1];
-
                 case RIGHT:
                     return board[movingItem.getY()][movingItem.getX() + 1];
-
                 default:
                     return Byte.MAX_VALUE;
             }
